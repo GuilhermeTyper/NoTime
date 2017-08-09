@@ -38,7 +38,12 @@ function novaLinha(usuario, palavras) {
 
 function removeLinha() {
     event.preventDefault(); /*caso eu queira para um evento de diremenciona para a cima da pagina */
-    $(this).parent().parent().remove(); /*caso eu queria remover o pai de um elemento html */
+    var linha = $(this).parent().parent(); /*caso eu queria remover o pai de um elemento html */
+    linha.fadeOut(1000);
+
+    setTimeout(function () {
+        linha.remove();
+    }, 1000);
 }
 
 function mostrarPlacar() {
