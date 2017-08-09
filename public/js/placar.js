@@ -47,5 +47,5 @@ function removeLinha() {
 }
 
 function mostrarPlacar() {
-    $(".placar").slideToggle(2000);
+    $(".placar").stop().slideToggle(2000);
 }
