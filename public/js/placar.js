@@ -14,6 +14,17 @@ function inserePlacar() {
                "</tr>";   "esse código em grafite tambem funciona mais não é uma boa pratica de manipulação html"" */
     linha.find(".botao-remover").click(removeLinha);
     corpoTabela.prepend(linha);
+    $(".placar").slideDown(500);
+    scrollPlacar();
+}
+
+function scrollPlacar() {
+    var posicaoPlacar = $(".placar").offset().top;
+    $("body").animate({
+
+        scrollTop: posicaoPlacar+"px"
+
+    },1000);
 }
 
 function novaLinha(usuario, palavras) {
