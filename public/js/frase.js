@@ -6,6 +6,6 @@ function fraseAleatoria() {
     function trocaFrase(data) {
         var frase = $(".frase");
         var numeroAleatorio = Math.floor(Math.random() * data.length);
-        frase.text(data[numeroAleatorio].texto);
+        frase.text(data[numeroAleatorio].texto);//pegando a propriedade texto e transformando em texto tudo aleatoriamente
     }
 }
