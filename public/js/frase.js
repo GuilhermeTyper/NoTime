@@ -7,9 +7,9 @@ function fraseAleatoria() {
         var frase = $(".frase");
         var numeroAleatorio = Math.floor(Math.random() * data.length);//sortindo e multiplicando o json mais o seu tamnho para limita-lo
         frase.text(data[numeroAleatorio].texto);//pegando a propriedade texto e transformando em texto tudo aleatoriamente
-        atualizaTamanhoFrase();
-        atualizaTempoInicial(data[numeroAleatorio].tempo);
-        console.log(data);
+        atualizaTamanhoFrase();//essa função está vindo do main.js
+        atualizaTempoInicial(data[numeroAleatorio].tempo);//essa função está vindo do main.js
+        console.log(data);//verificando se o json está sendo aplicado corretamente no app
 
 
 }
