@@ -2,7 +2,7 @@ $("#botao-frase").click(fraseAleatoria);
 
 function fraseAleatoria() {
 
-    $("#spinner").toggle();
+    $("#spinner").toggle();// assim que uma requisição for chamada o spinner irá aparecer 
 
     $.get("http://localhost:3000/frases", trocaFrase).fail(function() {   
         $("#erro").show();//caso o usuario esteja sem internet ira acontecer esse evento
@@ -10,9 +10,7 @@ function fraseAleatoria() {
             $("#erro").toggle();
         },1500);
     }).always(function() {
-        $("#spinner").toggle();
-
-        
+        $("#spinner").toggle();//mesmo se caso aparecer algum erro o spinner irá aparecer
     });
 }
     function trocaFrase(data) {
