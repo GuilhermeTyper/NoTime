@@ -1,4 +1,5 @@
 $("#botao-frase").click(fraseAleatoria);
+$("#botao-frase-id").click(buscarFrase);
 
 function fraseAleatoria() {
 
@@ -20,6 +21,26 @@ function fraseAleatoria() {
         atualizaTamanhoFrase();//essa função está vindo do main.js
         atualizaTempoInicial(data[numeroAleatorio].tempo);//essa função está vindo do main.js
         console.log(data);//verificando se o json está sendo aplicado corretamente no app
+}
 
+function buscarFrase() {
+    $("#spinner").toggle();
+    var fraseId = $("#frase-id").val();
+    console.log(fraseId);
+    var dados = {id: fraseId};
+    $.get("http://localhost:3000/frases",dados,trocaFrase).fail(function() {
+        $("#erro").toggle();
+        setTimeout(function() {
+            $("#erro").toggle();
+        }, 2000);
+    }).always(function() {
+        $("#spinner").toggle();
+    });
+}
 
+function trocaFrase(data) {
+    var frase = $(".frase");
+    frase.text(data.texto);
+    atualizaTamanhoFrase();
+    atualizaTempoInicial(data.tempo);
 }
