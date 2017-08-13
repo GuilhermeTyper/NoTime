@@ -23,9 +23,9 @@ function scrollPlacar() {
     var posicaoPlacar = $(".placar").offset().top;
     $("body").animate({
 
-        scrollTop: posicaoPlacar+"px"
+        scrollTop: posicaoPlacar + "px"
 
-    },1000);
+    }, 1000);
 }
 
 function novaLinha(usuario, palavras) {
@@ -65,7 +65,7 @@ function mostrarPlacar() {
 function sincronizaPlacar() {
     var placar = [];
     var linhas = $("tbody>tr");//pegando todas tr que são filhas diretas de tbody igual o css
-    linhas.each(function() {//Esse loop irá percorrer essa função para pegar todos usuarios e palavras do nosso tbody
+    linhas.each(function () {//Esse loop irá percorrer essa função para pegar todos usuarios e palavras do nosso tbody
         var usuario = $(this).find("td:nth-child(1)").text();//pegando o primeiro filho da tbody nesse caso o nome
         var palavras = $(this).find("td:nth-child(2)").text();//pegando o segundo filho da tbody nesse caso o No. de palavras
         var score = {//criando um documento que irá colocar as var de usuario e palavras como usuario e pontos
@@ -76,11 +76,21 @@ function sincronizaPlacar() {
         placar.push(score)//pengado o nosso documento score e colocando dentro do array placar  
     });
 
-    var dados  = {
+    var dados = {
         placar: placar //atribuindo o array placar para um document para poder ser passado para requisição POST
     };
-    
-    $.post("http://localhost:3000/placar",dados,function() {//envinando os dados para o servidor atraves do POST
+
+    $.post("http://localhost:3000/placar", dados, function () {//envinando os dados para o servidor atraves do POST
         console.log("Salvou o placar no servidor.");
-    })
+    });
+}
+
+function atualizaPlacar() {
+    $.get("http://localhost:3000/placar", function (data) {
+        $(data).each(function () {
+            var linha = novaLinha(this.usuario, this.pontos);
+            $("tbody").append(linha);
+        });
+
+    });
 }

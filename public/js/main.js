@@ -7,6 +7,7 @@ $(function () { /* caso eu queira nomear a função como ready ela tambem irá f
     inicializaCronometro();
     inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);
+    atualizaPlacar();
 });
 
 function atualizaTempoInicial(tempo) {
