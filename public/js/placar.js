@@ -65,22 +65,22 @@ function mostrarPlacar() {
 function sincronizaPlacar() {
     var placar = [];
     var linhas = $("tbody>tr");//pegando todas tr que são filhas diretas de tbody igual o css
-    linhas.each(function() {
+    linhas.each(function() {//Esse loop irá percorrer essa função para pegar todos usuarios e palavras do nosso tbody
         var usuario = $(this).find("td:nth-child(1)").text();//pegando o primeiro filho da tbody nesse caso o nome
         var palavras = $(this).find("td:nth-child(2)").text();//pegando o segundo filho da tbody nesse caso o No. de palavras
-        var score = {
+        var score = {//criando um documento que irá colocar as var de usuario e palavras como usuario e pontos
             usuario: usuario,
             pontos: palavras
         };
 
-        placar.push(score)
+        placar.push(score)//pengado o nosso documento score e colocando dentro do array placar  
     });
 
     var dados  = {
         placar: placar //atribuindo o array placar para um document para poder ser passado para requisição POST
     };
     
-    $.post("http://localhost:3000/placar",dados,function() {
+    $.post("http://localhost:3000/placar",dados,function() {//envinando os dados para o servidor atraves do POST
         console.log("Salvou o placar no servidor.");
     })
 }
