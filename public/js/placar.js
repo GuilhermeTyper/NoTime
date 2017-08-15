@@ -59,7 +59,7 @@ function removeLinha() {
 }
 
 function mostrarPlacar() {
-    $(".placar").stop().slideToggle(2000);
+    $(".placar").stop().slideToggle(2000);//quando o usuario ficar apertando varias vezes o botão ele só execultará uma vez
 }
 
 function sincronizaPlacar() {
