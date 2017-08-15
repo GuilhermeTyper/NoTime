@@ -4,7 +4,7 @@ $("#botao-sync").click(sincronizaPlacar);
 
 function inserePlacar() {
     var corpoTabela = $(".placar").find("tbody");
-    var usuario = $("#usuarios").val();
+    var usuario = $("#usuarios").val();//adicionando jogador que foi inserido pelo usuario e colocando no placar
     var numPalavras = $("#contador-palavras").text();
 
     /*var botaoRemover = "<a href='#'><i class='small material-icons'>delete</i></a>";*/
