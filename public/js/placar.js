@@ -19,7 +19,7 @@ function inserePlacar() {
     scrollPlacar();
 }
 
-function scrollPlacar() {
+function scrollPlacar() {//adicionando o evento para o placar fazer uma animação de scroll 
     var posicaoPlacar = $(".placar").offset().top;
     $("body").animate({
 
