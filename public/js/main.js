@@ -8,6 +8,11 @@ $(function () { /* caso eu queira nomear a função como ready ela tambem irá f
     inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);
     atualizaPlacar();
+    $('#usuarios').selectize({
+        create: true,
+        sortField: 'text'
+    });
+    
 });
 
 function atualizaTempoInicial(tempo) {
