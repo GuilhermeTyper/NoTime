@@ -82,8 +82,15 @@ function sincronizaPlacar() {
 
     $.post("http://localhost:3000/placar", dados, function () {//envinando os dados para o servidor atraves do POST
         console.log("Salvou o placar no servidor.");
-    });
-}
+        $(".tooltip").tooltipster("open").tooltipster("content","Sucesso ao Sincronizar!!");//trocando a mensagem que era para mostrar no html para a que consta depois do content
+    }).fail(function () {//caso a requisição de falha
+        $(".tooltip").tooltipster("open").tooltipster("content","Falha ao Sincronizar!!");
+    }).always(function() { //sempre vai mostrar essa mensagem ao fazer a requisiçao
+        setTimeout(function() {
+            $(".tooltip").tooltipster("close");//para que a mensagem não fechar rapidamente coloque dentro de um setTimeout e que feche apos 1.2 seg
+        }, 1200);
+    })
+};
 
 function atualizaPlacar() {
     $.get("http://localhost:3000/placar", function (data) {

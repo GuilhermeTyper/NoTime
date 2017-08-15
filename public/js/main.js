@@ -13,8 +13,10 @@ $(function () { /* caso eu queira nomear a função como ready ela tambem irá f
         sortField: 'text'
     });
 
-    $(".tooltip").tooltipster();
-    
+    $(".tooltip").tooltipster({
+        trigger: "custom"
+    });
+
     
 });
 
