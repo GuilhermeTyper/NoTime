@@ -9,8 +9,8 @@ $(function () { /* caso eu queira nomear a função como ready ela tambem irá f
     $("#botao-reiniciar").click(reiniciaJogo);
     atualizaPlacar();
     $('#usuarios').selectize({
-        create: true,
-        sortField: 'text'
+        create: true,       //assim que o usuario adicionar o jogador esse id irá cria-lo no select para futuras partidas
+        sortField: 'text' // esse id irá sortear os nome na lista
     });
 
     $(".tooltip").tooltipster({
